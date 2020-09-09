@@ -1,0 +1,46 @@
+﻿<Page x:Class="Presentation.Pages.Admin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentation.Pages"
+      xmlns:vm="clr-namespace:Presentation.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Home">
+    <Page.DataContext>
+        <vm:AdminViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{DynamicResource BgColor}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="800" Height="50" VerticalAlignment="Top">
+            <Button Command="{Binding GoHomeCommand}" Template="{StaticResource ButtonTemplate}"  Width="400" Content="Refresh"/>
+            <Button Command="{Binding LogOutCommand}" Width="400" Template="{StaticResource ButtonTemplate}" Content="Log Out"/>
+        </StackPanel>
+        <TextBlock Margin="0,50,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ErrorColor}" TextAlignment="Center" FontSize="25" Text="{Binding ErrorMessage}"/>
+        <ListBox Background="{DynamicResource BgColor}" Width="400" Margin="0,100,400,0" VerticalAlignment="Top" Height="350" Grid.Column="0" ItemsSource="{Binding Resumes}"
+                 SelectedItem="{Binding SelectedResume}">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <StackPanel Margin="5" Background="{DynamicResource BgTextBoxColor}">
+                        <TextBlock FontSize="16" Width="300" TextWrapping="Wrap" TextAlignment="Center"  Text="{Binding Path=ShortDescription}" />
+                        <TextBlock TextWrapping="Wrap" Width="300" Text="{Binding Path=FullDescription}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Template="{StaticResource RoundedButtonTemplate}" Margin="100,460,0,0" HorizontalAlignment="Left" Width="150" Height="20" Content="Delete Item" Command="{Binding DeleteItemCommand}"/>
+        <ListBox Height="350" VerticalAlignment="Top" Margin="400,100,0,0" Grid.Column="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding Vacancies}"
+                 SelectedItem="{Binding SelectedVacancy}">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <StackPanel Margin="5" Background="{DynamicResource BgTextBoxColor}">
+                        <TextBlock FontSize="16" TextAlignment="Center" Width="300" Text="{Binding Path=ShortDescription}" />
+                        <TextBlock Width="300" Text="{Binding Path=FullDescription}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Template="{StaticResource RoundedButtonTemplate}" Margin="500,460,0,0" HorizontalAlignment="Left" Width="150" Height="20" Content="Delete User" Command="{Binding DeleteUserCommand}"/>
+    </Grid>
+</Page>

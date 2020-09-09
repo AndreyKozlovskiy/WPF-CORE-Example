@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Logic.Contexts
+namespace Domain.Contexts
 {
     public class DataContext : IDataContext
     {

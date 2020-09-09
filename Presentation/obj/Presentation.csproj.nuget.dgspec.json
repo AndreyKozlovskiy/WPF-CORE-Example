@@ -4,12 +4,12 @@
     "C:\\Users\\carat\\source\\repos\\JobSocial\\Presentation\\Presentation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj": {
+    "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj",
-        "projectName": "Logic",
-        "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj",
         "packagesPath": "C:\\Users\\carat\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\obj\\",
         "projectStyle": "PackageReference",
@@ -105,8 +105,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj"
+              "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj": {
+                "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj"
               }
             }
           }
@@ -120,6 +120,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "EPP.PresentationCore": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[3.1.2, )"

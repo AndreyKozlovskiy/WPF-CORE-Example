@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\carat\source\repos\JobSocial\Presentation\App.xaml
-11892971807
+11-1182321779
 
-5-259744996
-211572981850
-Views\MainWindow.xaml;
+24-142457066
+211-317612748
+Pages\Account.xaml;Pages\Admin.xaml;Pages\Login.xaml;Pages\MyResumes.xaml;Pages\MyVacancies.xaml;Pages\Register.xaml;Pages\SearchEmployees.xaml;Pages\SearchJob.xaml;Resources\Styles.xaml;Resources\Themes\Light.xaml;Views\MainWindow.xaml;
 
 True
 

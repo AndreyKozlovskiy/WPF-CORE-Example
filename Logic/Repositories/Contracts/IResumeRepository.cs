@@ -1,6 +1,6 @@
-﻿using Logic.Models;
+﻿using Domain.Models;
 
-namespace Logic.Repositories.Contracts
+namespace Domain.Repositories.Contracts
 {
     public interface IResumeRepository : IRepository<Resume>
     {

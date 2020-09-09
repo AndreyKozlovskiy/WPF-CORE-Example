@@ -1,6 +1,6 @@
-﻿using Logic.Models;
-using Logic.Repositories.Contracts;
-using Logic.Services.Contracts;
+﻿using Domain.Models;
+using Domain.Repositories.Contracts;
+using Domain.Services.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
 

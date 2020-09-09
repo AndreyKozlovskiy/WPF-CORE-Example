@@ -4979,9 +4979,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj",
-      "projectName": "Logic",
-      "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj",
+      "projectUniqueName": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj",
+      "projectName": "Domain",
+      "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj",
       "packagesPath": "C:\\Users\\carat\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\obj\\",
       "projectStyle": "PackageReference",

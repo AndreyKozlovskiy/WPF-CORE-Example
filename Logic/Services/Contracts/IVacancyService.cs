@@ -1,6 +1,6 @@
-﻿using Logic.Models;
+﻿using Domain.Models;
 
-namespace Logic.Services.Contracts
+namespace Domain.Services.Contracts
 {
     public interface IVacancyService : IService<Vacancy>
     {

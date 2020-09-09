@@ -1,0 +1,140 @@
+﻿<Page x:Class="Presentation.Pages.Account"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentation.Pages"
+      xmlns:vm="clr-namespace:Presentation.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Home">
+    <Page.DataContext>
+        <vm:AccountViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="800" Height="50" VerticalAlignment="Top">
+            <Button Command="{Binding GoMyResumesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My resumes"/>
+            <Button Command="{Binding GoMyVacanciesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My vacancies"/>
+            <Button Command="{Binding GoSearchEmployeesCommand}" Template="{StaticResource ButtonTemplate}" Width="134" Content="Search Employees"/>
+            <Button Command="{Binding GoSearchJobCommand}" Template="{StaticResource ButtonTemplate}" Width="133"  Content="Search Job"/>
+            <Button Command="{Binding GoAccountCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="Account"/>
+            <Button Command="{Binding LogOutCommand}" Width="134" Template="{StaticResource ButtonTemplate}" Content="Log Out"/>
+        </StackPanel>
+
+        <Grid Margin="0,50,0,0" Background="{DynamicResource BgColor}">
+            <StackPanel>
+                <TextBlock Text="{Binding ErrorMessage}" FontSize="22" HorizontalAlignment="Center" Foreground="{DynamicResource ErrorColor}" VerticalAlignment="Top"/>
+            </StackPanel>
+            <Grid Margin="0,30,400,0">
+
+                <Grid Margin="0,0,266,100">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}" Text="Education" HorizontalAlignment="Center"/>
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Margin="0,2" Text="Name" HorizontalAlignment="Center"/>
+
+                        <TextBox MaxLength="70" HorizontalAlignment="Center" Foreground="{DynamicResource CasualTextColor}" Margin="10,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=EducationName}"  VerticalContentAlignment="Center" Width="110" Height="20"  AcceptsTab="False"/>
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Margin="0,2" Text="Organization" HorizontalAlignment="Center"/>
+                        <TextBox MaxLength="70" HorizontalAlignment="Center" Foreground="{DynamicResource CasualTextColor}" Margin="10,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=EducationOrganization}"  VerticalContentAlignment="Center" Width="110" Height="20"  AcceptsTab="False" />
+                        <Button Command="{Binding  AddEducationCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Add Education"/>
+
+                        <ListBox  Height="300" Margin="0,20,0,0"  Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding Educations}"
+                                    SelectedItem="{Binding SelectedEducation}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Background="{DynamicResource HeaderColor}" Width="129" Margin="2,5">
+                                        <TextBlock Width="115" TextWrapping="WrapWithOverflow" FontSize="14" Text="{Binding Path=EducationName}" />
+                                        <TextBlock Width="115" TextWrapping="WrapWithOverflow" FontSize="10" Text="{Binding Path=OrghanisationName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="133,0,133,100">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Text="Experience" HorizontalAlignment="Center"/>
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Margin="0,2" Text="Name" HorizontalAlignment="Center"/>
+                        <TextBox MaxLength="70" HorizontalAlignment="Center" Foreground="{DynamicResource CasualTextColor}" Margin="10,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=WorkName}"  VerticalContentAlignment="Center" Width="110" Height="20"  AcceptsTab="False"/>
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Margin="0,2" Text="Organization" HorizontalAlignment="Center"/>
+                        <TextBox MaxLength="70" HorizontalAlignment="Center" Foreground="{DynamicResource CasualTextColor}" Margin="10,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=WorkOrghanization}"  VerticalContentAlignment="Center" Width="110" Height="20"  AcceptsTab="False" />
+                        <Button Command="{Binding  AddWorkCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Add Experience"/>
+                        <ListBox  Height="300" Margin="0,20,0,0" Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding WorkExperiences}"
+                                    SelectedItem="{Binding SelectedWorkExperience}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate >
+                                    <StackPanel Background="{DynamicResource HeaderColor}" Margin="2,5">
+                                        <TextBlock TextWrapping="WrapWithOverflow"  FontSize="14" Width="115" Text="{Binding Path=WorkName}" />
+                                        <TextBlock Width="115" TextWrapping="WrapWithOverflow"  Margin="0,10,0,0" FontSize="10" Text="{Binding Path=OrghanizationName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Grid>
+                <Grid  Margin="266,0,0,100">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Text="Skills" HorizontalAlignment="Center"/>
+                        <TextBlock Foreground="{DynamicResource CasualTextColor}"  Margin="0,2" Text="Name" HorizontalAlignment="Center"/>
+                        <TextBox MaxLength="70" HorizontalAlignment="Center" Foreground="{DynamicResource CasualTextColor}" Margin="10,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=SkillName}"  VerticalContentAlignment="Center" Width="110" Height="20"  AcceptsTab="False"/>
+                        <Button Margin="0,49,0,0" Command="{Binding AddSkillCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Add Skill"/>
+                        <ListBox Height="300" Margin="0,20,0,0" Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding Skills}"
+                                    SelectedItem="{Binding SelectedSkill}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate >
+                                    <StackPanel Margin="2,5" >
+                                        <TextBlock TextWrapping="WrapWithOverflow" FontSize="14" Background="{DynamicResource HeaderColor}" Text="{Binding Path=SkillName}" Width="115" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    
+                </Grid>
+                <Grid Margin="0,360,0,0" >
+                    <Button Template="{StaticResource RoundedButtonTemplate}" Command="{Binding DeleteItemCommand}" Content="Delete Item" Width="100" Height="30" />
+                </Grid>
+            </Grid>
+            <Grid Margin="400,30,0,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}" VerticalAlignment="Center">FirstName:</Label>
+                        <TextBox MaxLength="40" Foreground="{DynamicResource CasualTextColor}" Margin="32,5,0,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=User.FirstName}"  VerticalContentAlignment="Center" Width="325" Height="20"  AcceptsTab="False"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}" VerticalAlignment="Center">SecondName:</Label>
+                        <TextBox MaxLength="40" Foreground="{DynamicResource CasualTextColor}" Margin="15,5,0,5" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=User.SecondName}"  VerticalContentAlignment="Center" Width="312" Height="20"  AcceptsTab="False"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}" VerticalAlignment="Center">City:</Label>
+                        <TextBox MaxLength="40" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}" Text="{Binding User.City}" Margin="65,5,0,5"  VerticalContentAlignment="Center" Width="367" Height="20" AcceptsTab="False" />
+                    </StackPanel>
+                    <Button Command="{Binding  ChangeAccountSettingsCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Save Changes"/>
+                </StackPanel>
+                <StackPanel Margin="0,120,0,0" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}"  VerticalAlignment="Center">Old Password:</Label>
+                        <PasswordBox MaxLength="20" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}"  PasswordChanged="PasswordBox_OldPasswordChanged" Width="290"  Height="20" Margin="30,10,0,0" VerticalContentAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}"  VerticalAlignment="Center">New Password:</Label>
+                        <PasswordBox MaxLength="20" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}"  PasswordChanged="PasswordBox_NewPasswordChanged" Width="290" Height="20" Margin="24,10,0,0" VerticalContentAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="{DynamicResource CasualTextColor}"  VerticalAlignment="Center">Confirm Password:</Label>
+                        <PasswordBox MaxLength="20" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}"  PasswordChanged="PasswordBox_ConfirmPasswordChanged" Width="290" Height="20" Margin="6,10,0,10" VerticalContentAlignment="Center" />
+                    </StackPanel>
+                    <Button Command="{Binding  ChangePasswordCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Change Password"/>
+
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Foreground="{DynamicResource CasualTextColor}"  VerticalAlignment="Center">Password:</Label>
+                        <PasswordBox MaxLength="20" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}"  PasswordChanged="PasswordBox_PasswordToDeleteChanged" Width="200" Height="20" Margin="10" VerticalContentAlignment="Center" />
+                    </StackPanel>
+                    <Button Command="{Binding  DeleteAccountCommand}" Width="115" Template="{StaticResource RoundedButtonTemplate}" Content="Delete account"/>
+
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

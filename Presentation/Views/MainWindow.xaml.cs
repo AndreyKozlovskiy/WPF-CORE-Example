@@ -1,23 +1,13 @@
-﻿using Logic;
-using Logic.Models;
-using Logic.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Presentation
+namespace Presentation.Views
 {
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
-            var app = ServiceConfiguration.GetMainService();
-
-            app.
-            
+            DataContext = App.MainWindowViewModel;
+            App.MainWindowViewModel.CurrentPage = App.LoginPage;
             InitializeComponent();
         }
     }

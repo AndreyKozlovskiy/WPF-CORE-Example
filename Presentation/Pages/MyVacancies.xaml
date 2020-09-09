@@ -1,0 +1,56 @@
+﻿<Page x:Class="Presentation.Pages.MyVacancies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentation.Pages"
+      xmlns:vm="clr-namespace:Presentation.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Home">
+    <Page.DataContext>
+        <vm:MyVacanciesViewModel />
+    </Page.DataContext>
+    
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="800" Height="50" VerticalAlignment="Top">
+            <Button Command="{Binding GoMyResumesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My resumes"/>
+            <Button Command="{Binding GoMyVacanciesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My vacancies"/>
+            <Button Command="{Binding GoSearchEmployeesCommand}" Template="{StaticResource ButtonTemplate}" Width="134" Content="Search Employees"/>
+            <Button Command="{Binding GoSearchJobCommand}" Template="{StaticResource ButtonTemplate}" Width="133"  Content="Search Job"/>
+            <Button Command="{Binding GoAccountCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="Account"/>
+            <Button Command="{Binding LogOutCommand}" Width="134" Template="{StaticResource ButtonTemplate}" Content="Log Out"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,50,0,0" Background="{DynamicResource BgColor}">
+            <StackPanel>
+                <TextBlock  Text="{Binding ErrorMessage}" FontSize="25"  HorizontalAlignment="Center" Foreground="{DynamicResource ErrorColor}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <ListBox Height="300"  Margin="0,50,400,0" BorderThickness="0"  Background="{DynamicResource BgColor}" ItemsSource="{Binding Vacancies}"
+                 SelectedItem="{Binding SelectedVacancy}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate >
+                            <StackPanel Margin="5,10,0,0" Background="{DynamicResource BgTextBoxColor}" Width="300" >
+                                <TextBlock  TextAlignment="Center" TextWrapping="Wrap" Width="300" FontSize="18" Text="{Binding Path=ShortDescription}" />
+                                <TextBlock  Width="300" FontSize="14" TextWrapping="Wrap" Text="{Binding Path=FullDescription}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="400,100,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Foreground="{DynamicResource CasualTextColor}" VerticalAlignment="Center">Name:</Label>
+                <TextBox MaxLength="70" Foreground="{DynamicResource CasualTextColor}" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=ShortDescription}"  VerticalContentAlignment="Center" Width="300" Height="30" Margin="10,10,20,10" AcceptsTab="False"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label VerticalAlignment="Center" Foreground="{DynamicResource CasualTextColor}">Description:</Label>
+                <TextBox MaxLength="500" Foreground="{DynamicResource CasualTextColor}" VerticalContentAlignment="Top" TextWrapping="Wrap" Background="{DynamicResource BgTextBoxColor}" Text="{Binding Path=FullDescription}"  Width="300" Height="100" Margin="10,10,20,10" />
+            </StackPanel>
+            <Button Name="AddResumeButton" Template="{StaticResource RoundedButtonTemplate}"  Command="{Binding AddVacancyCommand}" Width="120" Height="30" Content="Add Vacancy" Margin="40"  />
+            <Button Name="DeleteVacancy" Template="{StaticResource RoundedButtonTemplate}" Command="{Binding DeleteVacancyCommand}" Width="120" Height="30" Content="Delete Vacancy" />
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Logic.Services.Contracts
+namespace Domain.Services.Contracts
 {
     public interface IService<T>
     {

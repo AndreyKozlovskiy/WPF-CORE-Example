@@ -1,0 +1,38 @@
+﻿<Page x:Class="Presentation.Pages.SearchJob"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentation.Pages"
+      xmlns:vm="clr-namespace:Presentation.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Home">
+    <Page.DataContext>
+        <vm:SerchJobViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{DynamicResource BgColor}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="800" Height="50" VerticalAlignment="Top">
+            <Button Command="{Binding GoMyResumesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My resumes"/>
+            <Button Command="{Binding GoMyVacanciesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My vacancies"/>
+            <Button Command="{Binding GoSearchEmployeesCommand}" Template="{StaticResource ButtonTemplate}" Width="134" Content="Search Employees"/>
+            <Button Command="{Binding GoSearchJobCommand}" Template="{StaticResource ButtonTemplate}" Width="133"  Content="Search Job"/>
+            <Button Command="{Binding GoAccountCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="Account"/>
+            <Button Command="{Binding LogOutCommand}" Width="134" Template="{StaticResource ButtonTemplate}" Content="Log Out"/>
+        </StackPanel>
+        <ListBox Height="400" Width="700" Margin="50,100,100,50" BorderThickness="0"  Background="{DynamicResource BgColor}" ItemsSource="{Binding Vacancies}">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+
+                    <StackPanel Margin="5,10,20,0" Background="{DynamicResource BgTextBoxColor}" Width="600" >
+                        <TextBlock  TextAlignment="Center" TextWrapping="Wrap" Width="600" FontSize="18" Text="{Binding Path=ShortDescription}" />
+                        <TextBlock  Width="600" FontSize="14" TextWrapping="Wrap" Text="{Binding Path=FullDescription}" />
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Page>

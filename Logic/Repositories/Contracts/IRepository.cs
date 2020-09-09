@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-namespace Logic.Repositories.Contracts
+namespace Domain.Repositories.Contracts
 {
     public interface IRepository<T>
     {

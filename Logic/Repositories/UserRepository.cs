@@ -1,12 +1,12 @@
-﻿using Logic.Contexts;
-using Logic.Models;
-using Logic.Repositories.Contracts;
+﻿using Domain.Contexts;
+using Domain.Models;
+using Domain.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Logic.Repositories
+namespace Domain.Repositories
 {
     public class UserRepository : IUserRepository
     {

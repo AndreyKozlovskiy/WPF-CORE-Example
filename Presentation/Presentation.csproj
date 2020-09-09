@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPP.PresentationCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logic\Logic.csproj" />
+    <ProjectReference Include="..\Logic\Domain.csproj" />
   </ItemGroup>
 
 </Project>

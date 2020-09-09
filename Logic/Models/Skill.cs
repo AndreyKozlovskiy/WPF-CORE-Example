@@ -1,18 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Logic.Models
+namespace Domain.Models
 {
     public class Skill
     {
         [Key]
-        public virtual int SkillId { get; set; }
+        public int SkillId { get; set; }
         [Required]
         [MaxLength(50)]
-        public virtual string SkillName { get; set; }
+        public string SkillName { get; set; }
         [Required]
-        public virtual Resume Resume { get; set; }
-        [ForeignKey("Resume")]
-        public virtual int ResumeId { get; set; }
+        public virtual User User { get; set; }
+        [ForeignKey("User")]
+        [Required]
+        public virtual int UserId { get; set; }
     }
 }

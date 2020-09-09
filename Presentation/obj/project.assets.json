@@ -1262,7 +1262,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Logic/1.0.0": {
+      "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -1271,10 +1271,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
         "compile": {
-          "bin/placeholder/Logic.dll": {}
+          "bin/placeholder/Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Logic.dll": {}
+          "bin/placeholder/Domain.dll": {}
         }
       }
     }
@@ -4909,15 +4909,16 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Logic/1.0.0": {
+    "Domain/1.0.0": {
       "type": "project",
-      "path": "../Logic/Logic.csproj",
-      "msbuildProject": "../Logic/Logic.csproj"
+      "path": "../Logic/Domain.csproj",
+      "msbuildProject": "../Logic/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Logic >= 1.0.0",
+      "Domain >= 1.0.0",
+      "EPP.PresentationCore >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 3.1.2"
     ]
   },
@@ -4951,8 +4952,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Logic.csproj"
+            "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj": {
+              "projectPath": "C:\\Users\\carat\\source\\repos\\JobSocial\\Logic\\Domain.csproj"
             }
           }
         }
@@ -4966,6 +4967,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "EPP.PresentationCore": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[3.1.2, )"

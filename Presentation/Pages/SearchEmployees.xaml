@@ -1,0 +1,78 @@
+﻿<Page x:Class="Presentation.Pages.SearchEmployees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentation.Pages"
+      xmlns:vm="clr-namespace:Presentation.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Home">
+    <Page.DataContext>
+        <vm:SearchEmployeesViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{DynamicResource BgColor}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="800" Height="50" VerticalAlignment="Top">
+            <Button Command="{Binding GoMyResumesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My resumes"/>
+            <Button Command="{Binding GoMyVacanciesCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="My vacancies"/>
+            <Button Command="{Binding GoSearchEmployeesCommand}" Template="{StaticResource ButtonTemplate}" Width="134" Content="Search Employees"/>
+            <Button Command="{Binding GoSearchJobCommand}" Template="{StaticResource ButtonTemplate}" Width="133"  Content="Search Job"/>
+            <Button Command="{Binding GoAccountCommand}" Template="{StaticResource ButtonTemplate}" Width="133" Content="Account"/>
+            <Button Command="{Binding LogOutCommand}" Width="134" Template="{StaticResource ButtonTemplate}" Content="Log Out"/>
+        </StackPanel>
+        <ListBox Height="400"  Margin="0,50,500,0" BorderThickness="0"  Background="{DynamicResource BgColor}" ItemsSource="{Binding Resumes}"
+                 SelectedItem="{Binding SelectedResume}">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+
+                    <StackPanel Margin="5,10,20,0" Background="{DynamicResource BgTextBoxColor}" Width="300" >
+                        <TextBlock TextAlignment="Center"  TextWrapping="Wrap" Width="300" FontSize="18" Text="{Binding Path=ShortDescription}" />
+                        <TextBlock Width="300" FontSize="14" TextWrapping="Wrap" Text="{Binding Path=FullDescription}" />
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Margin="300,75,0,0">
+            <Button Command="{Binding  ShowUserCommand}" Width="115" Height="20" VerticalAlignment="Top" Template="{StaticResource RoundedButtonTemplate}" Content="Show User"/>
+            <StackPanel Orientation="Vertical" Margin="25" Height="50" VerticalAlignment="Top">
+                <TextBlock  HorizontalAlignment="Center" Text="{Binding FirstName}"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding SecondName}"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Mail}"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding City}"/>
+            </StackPanel>
+            <ListBox  Height="300" Margin="100,20,100,0" Width="150"  Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding Educations}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="{DynamicResource HeaderColor}" Width="129" Margin="2,5" Orientation="Vertical">
+                            <TextBlock Width="115" TextWrapping="WrapWithOverflow" FontSize="14" Text="{Binding Path=EducationName}" />
+                            <TextBlock Width="115" TextWrapping="WrapWithOverflow" FontSize="10" Text="{Binding Path=OrghanisationName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox  Width="150" Height="300" Margin="-300,20,0,0" Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding WorkExperiences}"
+                                   >
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Background="{DynamicResource HeaderColor}" Orientation="Vertical" Margin="2,5">
+                            <TextBlock TextWrapping="WrapWithOverflow"  FontSize="14" Width="115" Text="{Binding Path=WorkName}" />
+                            <TextBlock Width="115" TextWrapping="WrapWithOverflow"  Margin="0,10,0,0" FontSize="10" Text="{Binding Path=OrghanizationName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Height="300" Margin="300,20,0,0" Width="150" Grid.Column="0" BorderThickness="0" Background="{DynamicResource BgColor}" ItemsSource="{Binding Skills}"  >
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Vertical" Margin="2,5" >
+                            <TextBlock TextWrapping="WrapWithOverflow" FontSize="14" Background="{DynamicResource HeaderColor}" Text="{Binding Path=SkillName}" Width="115" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="CasualTextColor" Color="#373737"/>
+
+    <SolidColorBrush x:Key="BgColor" Color="#FCE694"/>
+
+    <SolidColorBrush x:Key="HeaderColor" Color="#C7DFC5"/>
+
+    <SolidColorBrush x:Key="ButtonColor" Color="#C1DBE3"/>
+
+    <SolidColorBrush x:Key="ErrorColor" Color="#DE1A1A"/>
+    
+    <SolidColorBrush x:Key="BgTextBoxColor" Color="#AAAAAA"/>
+
+    <SolidColorBrush x:Key="BordersButtonColor" Color="#423B0B"/>
+   
+</ResourceDictionary>

@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Logic.Models
+namespace Domain.Models
 {
     public class Vacancy
     {
@@ -17,6 +18,8 @@ namespace Logic.Models
         [Required]
         [ForeignKey("User")]
         public virtual int UserId { get; set; }
+
+        public DateTime Date { get; set; }
 
     }
 }
